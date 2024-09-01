@@ -1,0 +1,19 @@
+{
+  "name": "vite-fb",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "deploy": "firebase deploy",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^5.4.1"
+  },
+  "dependencies": {
+    "firebase": "^10.13.0",
+    "sass-embedded": "^1.77.8"
+  }
+}
