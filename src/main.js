@@ -1,6 +1,7 @@
 import firebaseConfig from "./services/firebaseConfig";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { initializeApp } from "firebase/app";
+import { navLinks } from "./vars";
 import homePage from "./pages/homePage";
 import moviesPage from "./pages/moviesPage";
 import errorPage from "./pages/errorPage";
@@ -30,3 +31,10 @@ function validateUrl(user) {
     return;
   }
 }
+navLinks.addEventListener("click", (event) => {
+  event.preventDefault();
+  for (let i = 0; i < navLinks.children.length; i++) {
+    navLinks.children[i].classList.remove("underline");
+  }
+  event.target.classList.add("underline");
+});
