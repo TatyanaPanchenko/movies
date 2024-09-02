@@ -26,15 +26,17 @@
       font-size: 16px;
       padding-left: 10px;
     }
-    button {
-      border: none;
-      outline: none;
-      background-color: rgb(24, 43, 97);
-      cursor: pointer;
-      color: #fff;
-      height: 40px;
-      width: 100%;
-      border-radius: 5px;
+    .wrapper-btn {
+      button {
+        border: none;
+        outline: none;
+        background-color: rgb(24, 43, 97);
+        cursor: pointer;
+        color: #fff;
+        height: 40px;
+        width: 100%;
+        border-radius: 5px;
+      }
     }
     a {
       display: block;

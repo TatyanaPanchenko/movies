@@ -6,8 +6,10 @@ import homePage from "./pages/homePage";
 import moviesPage from "./pages/moviesPage";
 import errorPage from "./pages/errorPage";
 import loginPage from "./pages/auth/loginPage/loginPage";
+import registerPage from "./pages/auth/registerPage/registerPage";
 initializeApp(firebaseConfig);
-const auth = getAuth();
+import { profile } from "./vars";
+export const auth = getAuth();
 onAuthStateChanged(auth, (user) => {
   validateUrl(user);
   switch (window.location.pathname) {
@@ -20,15 +22,20 @@ onAuthStateChanged(auth, (user) => {
     case "/login":
       loginPage();
       break;
+    case "/registration":
+      registerPage();
+      break;
     default:
       errorPage();
   }
 });
 
 function validateUrl(user) {
-  if (!user && window.location.pathname == "/") {
-    window.location.pathname = "/login";
-    return;
+  if (!user && window.location.pathname != "/login") {
+    if (!user && window.location.pathname != "/regisration") {
+      window.location.pathname = "/login";
+      return;
+    }
   }
 }
 navLinks.addEventListener("click", (event) => {
