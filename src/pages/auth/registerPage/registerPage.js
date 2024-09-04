@@ -22,7 +22,7 @@ export default function registerPage(auth) {
     <div class="wrapper-btn">
       <button>Enter</button>>
     </div>
-    <a href="/registration">Sign up</a>
+    <a href="/login">Sign in</a>
   </form>
 </div>`;
   app.innerHTML = formRegTemplate;
@@ -31,26 +31,33 @@ export default function registerPage(auth) {
   const err = document.querySelector(".err");
   formReg.addEventListener("submit", (event) => {
     event.preventDefault();
-    if (email.value < 7 || confirmPassword.value < 7) {
-      err.innerHTML = "Пароли не совпадают";
+    if (
+      email.value === "" ||
+      lastName.value === "" ||
+      firstName.value === "" ||
+      password.value === ""
+    ) {
+      err.innerHTML = "Fill in all fields";
       err.classList.remove("none");
       return;
     }
-    if (password.value < 7 || confirmPassword.value < 7) {
-      err.innerHTML = "Пароли не совпадают";
+    if (password.value.length < 7 || confirmPassword.value.length > 20) {
+      err.innerHTML = "Password contains less than 7 characters";
       err.classList.remove("none");
       return;
     }
     if (password.value !== confirmPassword.value) {
-      err.innerHTML = "Пароли не совпадают";
+      err.innerHTML = "Passwords don't match";
       err.classList.remove("none");
       return;
     }
     err.classList.add("none");
-    createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {})
+    createUserWithEmailAndPassword(auth, email.value, password.value)
+      .then((userCredential) => {
+        window.location.pathname = "/login";
+      })
       .catch((error) => {
-        err.innerHTML = "Уже существует";
+        err.innerHTML = "User already exists";
         err.classList.remove("none");
       });
   });

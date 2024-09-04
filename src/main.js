@@ -20,10 +20,10 @@ onAuthStateChanged(auth, (user) => {
       moviesPage();
       break;
     case "/login":
-      loginPage();
+      loginPage(auth);
       break;
     case "/registration":
-      registerPage();
+      registerPage(auth);
       break;
     default:
       errorPage();
@@ -31,11 +31,12 @@ onAuthStateChanged(auth, (user) => {
 });
 
 function validateUrl(user) {
-  if (!user && window.location.pathname != "/login") {
-    if (!user && window.location.pathname != "/regisration") {
+  if (!user && window.location.pathname !== "/login") {
+    if (!user && window.location.pathname !== "/regisration") {
       window.location.pathname = "/login";
       return;
     }
+    return;
   }
 }
 navLinks.addEventListener("click", (event) => {

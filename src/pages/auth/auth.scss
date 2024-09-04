@@ -12,12 +12,12 @@
     border-radius: 10px;
     .title {
       color: #fff;
-      margin-bottom: 50px;
+      margin-bottom: 40px;
       text-align: center;
       font-size: 26px;
     }
     input {
-      margin-bottom: 30px;
+      margin-top: 30px;
       width: 100%;
       height: 30px;
       border-radius: 5px;
@@ -28,6 +28,7 @@
     }
     .wrapper-btn {
       button {
+        margin-top: 30px;
         border: none;
         outline: none;
         background-color: rgb(24, 43, 97);

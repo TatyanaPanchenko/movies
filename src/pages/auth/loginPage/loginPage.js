@@ -20,7 +20,7 @@ export default function loginPage(auth) {
   </form>
 </div>`;
   app.innerHTML = formLoginTemplate;
-  const formLogin = document.form.login;
+  const formLogin = document.forms.login;
   const { email, password } = formLogin;
   const err = document.querySelector(".err");
 
@@ -28,7 +28,7 @@ export default function loginPage(auth) {
     event.preventDefault();
     if (email.value == "" || password.value == "") {
       err.classList.remove("none");
-      err.textContent = "Заполните все поля";
+      err.textContent = "Fill in all fields";
       return;
     }
     signInWithEmailAndPassword(auth, email, password)
@@ -37,7 +37,7 @@ export default function loginPage(auth) {
       })
       .catch((errText) => {
         err.classList.remove("none");
-        err.textContent = "Неверный";
+        err.textContent = "Incorrect login or password";
       });
   });
 }
