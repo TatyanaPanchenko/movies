@@ -1,9 +1,9 @@
 import "../auth.scss";
-import { app, header } from "../../../vars";
+import { app } from "../../../vars";
 import { signInWithEmailAndPassword } from "firebase/auth";
 
 export default function loginPage(auth) {
-  const formLoginTemplate = `<div class="wrapper-form">
+  app.innerHTML = `<div class="wrapper-form">
   <form name="login">
     <h1 class="title">Log in to your personal account</h1>
     <h3 class="err none"></h3>
@@ -19,7 +19,6 @@ export default function loginPage(auth) {
     <a href="/registration">Sign up</a>
   </form>
 </div>`;
-  app.innerHTML = formLoginTemplate;
   const formLogin = document.forms.login;
   const { email, password } = formLogin;
   const err = document.querySelector(".err");
@@ -31,7 +30,8 @@ export default function loginPage(auth) {
       err.textContent = "Fill in all fields";
       return;
     }
-    signInWithEmailAndPassword(auth, email, password)
+    err.classList.add("none");
+    signInWithEmailAndPassword(auth, email.value, password.value)
       .then(() => {
         window.location.pathname = "/";
       })

@@ -1,7 +1,9 @@
-import { app, header } from "../../../vars";
-export default function registerPage(auth) {
-  const formRegTemplate = `<div class="wrapper-form">
-  <form name="register">
+import "../auth.scss";
+import { app } from "../../../vars";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+export default function registrationPage(auth) {
+  app.innerHTML = `<div class="wrapper-form">
+  <form name="registration">
     <h1 class="title">Create your personal account</h1>
     <h3 class="err none"></h3>
     <div>
@@ -11,13 +13,13 @@ export default function registerPage(auth) {
       <input type="text" name="lastName" placeholder="Last name">
     </div>
 		   <div>
-      <input type="text" name="firstName" placeholder="First Name">
+      <input type="text" name="firstName" placeholder="First name">
     </div>
     <div>
       <input type="password" name="password" placeholder="Password">
     </div>
 		  <div>
-      <input type="password" name="confirfPassword" placeholder="Confirm password">
+      <input type="password" name="confirmPassword" placeholder="Confirm password">
     </div>
     <div class="wrapper-btn">
       <button>Enter</button>>
@@ -25,10 +27,10 @@ export default function registerPage(auth) {
     <a href="/login">Sign in</a>
   </form>
 </div>`;
-  app.innerHTML = formRegTemplate;
-  const formReg = document.form.register;
+  const formReg = document.forms.registration;
   const { email, password, lastName, firstName, confirmPassword } = formReg;
   const err = document.querySelector(".err");
+
   formReg.addEventListener("submit", (event) => {
     event.preventDefault();
     if (
@@ -54,7 +56,9 @@ export default function registerPage(auth) {
     err.classList.add("none");
     createUserWithEmailAndPassword(auth, email.value, password.value)
       .then((userCredential) => {
-        window.location.pathname = "/login";
+        err.classList.remove("none");
+        err.innerHTML = "Регистрация прошла успешно";
+        // window.location.pathname = "/login";
       })
       .catch((error) => {
         err.innerHTML = "User already exists";
