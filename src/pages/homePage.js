@@ -24,7 +24,9 @@ export default function homePage(auth) {
         <button>
           <img src="./assets/search.png" alt="search" />
         </button>
-      </form></div><div class="film-list">
+      </form>
+      <h1 class="title-page">Новинки августа 2024</h1>
+      </div><div class="film-list"><
            ${renderCardFilm(data)}</div>`
     );
     const form = document.forms.searchForm;

@@ -6,7 +6,7 @@
     input[type="text"] {
       font-size: 18px;
       width: 200px;
-      background-color: inherit;
+      background-color: transparent;
       border: none;
       outline: none;
       color: #fff;
@@ -31,6 +31,11 @@
     }
   }
 }
+.title-page {
+  color: rgba(255, 255, 255, 0.5);
+  text-align: center;
+  font-size: 26px;
+}
 .film-list {
   background: linear-gradient(
     90deg,
@@ -40,12 +45,14 @@
   );
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
   padding: 40px;
-  gap: 50px;
+  row-gap: 50px;
   column-gap: 10px;
   .card {
-    width: 17%;
+    flex: 1 0 17%;
+    min-width: 250px;
+    max-width: 300px;
     padding: 20px;
     background-color: rgba(0, 0, 0, 0.5);
     color: #fff;
@@ -60,7 +67,7 @@
       .card-title {
         margin-bottom: 15px;
         text-align: center;
-        width: 300px;
+        width: 100%;
         overflow: hidden;
         text-overflow: ellipsis;
         font-size: 20px;
