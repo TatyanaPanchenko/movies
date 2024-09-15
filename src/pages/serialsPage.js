@@ -2,28 +2,27 @@ import { app } from "../vars";
 import { header } from "../common/header";
 import { spinner } from "../common/spinner";
 import kinoPoisk from "../services/kinoPoisk";
-import { cardNews } from "../common/cardNews";
+import { cardFilm } from "../common/cardFilm";
 
-export default function newsPage(auth) {
+export default function serialsPage(auth) {
   spinner();
-  kinoPoisk.getNews().then((data) => {
+  kinoPoisk.getSerials().then((data) => {
     setTimeout(() => {
-      renderNewsPage(data, auth);
+      renderSerialsPage(data, auth);
     }, 1000);
   });
 }
-function renderNewsPage(data, auth) {
+function renderSerialsPage(data, auth) {
   app.innerHTML = "";
   header(true, auth);
-  console.log(data);
   app.insertAdjacentHTML(
     "beforeend",
     `<div class="container">
-    <div class="news-list">${renderCardNews(data)}
+    <div class="film-list">${renderCardFilm(data)}
            </div>
             </div>`
   );
 }
-function renderCardNews(news) {
-  return news.map((item) => cardNews(item)).join("");
+function renderCardFilm(films) {
+  return films.map((item) => cardFilm(item)).join("");
 }

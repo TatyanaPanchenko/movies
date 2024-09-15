@@ -35,7 +35,7 @@ export default function filmPage(auth, idFilm) {
 <div class="film-genres">Жанры: ${data.genres
         .map((item) => item.genre)
         .join(", ")}</div>
-        <div class="film-countries">Страны: ${data.countries
+        <div class="film-countries">Страна: ${data.countries
           .map((item) => item.country)
           .join(", ")}</div>
           <div class="film-rating">Рейтинг: ${data.ratingKinopoisk}</div>

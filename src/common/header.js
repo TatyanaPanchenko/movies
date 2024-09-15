@@ -1,6 +1,7 @@
 import { app } from "../vars";
 import imgLogo from "../../assets/logo.png";
 import { exitProfileUser } from "./exitProfileUser";
+import { navLinks } from "../vars";
 
 export function header(paste, auth) {
   const template = `<header id="header">
@@ -15,7 +16,7 @@ export function header(paste, auth) {
         <a href="/movies" id="movies-link">Фильмы</a>
         <a href="/serials" id="serials-link">Сериалы</a>
         <a href="/news" id="news-link">Новости</a>
-      </nav>
+           </nav>
           </div>
     <div class="profile"><img src="../../assets/exit.png" alt="exit"></div> 
   </header>`;

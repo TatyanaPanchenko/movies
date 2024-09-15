@@ -58,7 +58,7 @@ export default function registrationPage(auth) {
       .then((userCredential) => {
         err.classList.remove("none");
         err.innerHTML = "Регистрация прошла успешно";
-        // window.location.pathname = "/login";
+        window.location.pathname = "/login";
       })
       .catch((error) => {
         err.innerHTML = "User already exists";
