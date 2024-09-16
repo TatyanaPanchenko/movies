@@ -6,7 +6,7 @@ import { cardFilm } from "../common/cardFilm";
 import "./moviesPage.scss";
 export default function moviesPage(auth) {
   spinner();
-  kinoPoisk.getFilmGenres("FAMILY").then((data) => {
+  kinoPoisk.getFilmGenres("POPULAR_SERIES").then((data) => {
     setTimeout(() => {
       renderMoviesPage(data, auth);
     }, 1000);
